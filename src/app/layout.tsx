@@ -7,8 +7,8 @@ import { LanguageProvider } from "./providers/language-provider";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Nam Ngo - Creative Developer Portfolio',
-  description: 'Creative full-stack developer crafting beautiful digital experiences with code, creativity, and passion. Specializing in React, TypeScript, and modern web technologies.',
+  title: 'Ngô Phương Nam | Fullstack & Mobile Developer Portfolio',
+  description: 'Portfolio of Ngô Phương Nam - Fullstack & Mobile Developer with 4+ years of experience in React, Next.js, React Native, Node.js, Laravel, Blockchain & AI-augmented development workflows.',
 };
 
 export default function RootLayout({
