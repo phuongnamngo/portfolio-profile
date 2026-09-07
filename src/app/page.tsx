@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import {
   ArrowRight,
   Github,
@@ -322,6 +323,17 @@ export default function Home() {
               <Sparkles className="w-4 h-4 text-amber-400 animate-spin-slow" />
               <span>{t('hero.aiBadge')}</span>
               <span className="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-200 text-xs font-mono">Cursor • Antigravity • MCP</span>
+            </div>
+
+            <div className={`mx-auto mb-8 h-36 w-36 overflow-hidden rounded-full border-4 border-indigo-400/50 bg-slate-900 shadow-xl shadow-indigo-500/25 transition-all duration-1000 delay-75 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              <Image
+                src="/images/avatar.png"
+                alt="Ngô Phương Nam"
+                width={726}
+                height={695}
+                priority
+                className="h-full w-full object-cover"
+              />
             </div>
 
             {/* Hero Main Heading */}
