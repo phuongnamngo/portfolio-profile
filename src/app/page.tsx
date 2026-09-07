@@ -19,6 +19,7 @@ import {
   Server,
   Database,
   Globe,
+  Languages,
   GraduationCap,
   Briefcase,
   Copy,
@@ -77,25 +78,38 @@ export default function Home() {
   // Skills dataset based on CV
   const skillsData = [
     {
+      category: t('skills.cat.ai'),
+      icon: <Bot className="w-5 h-5 text-amber-400" />,
+      items: [
+        { name: 'Cursor, Antigravity, OpenAI Codex', tag: 'Agents' },
+        { name: 'Hermes Agent', tag: 'Agents' },
+        { name: 'MCP & agentic workflows', tag: 'Review & query' }
+      ]
+    },
+    {
       category: t('skills.cat.languages'),
       icon: <Code2 className="w-5 h-5 text-indigo-400" />,
       items: [
         { name: 'JavaScript & TypeScript', tag: 'Primary' },
-        { name: 'PHP', tag: 'Experienced' },
-        { name: 'Go', tag: 'Backend' },
-        { name: 'C# / .NET', tag: 'ERP' },
-        { name: 'HTML5 & CSS3 / Tailwind', tag: 'Frontend' }
+        { name: 'PHP', tag: 'Backend' }
       ]
     },
     {
-      category: t('skills.cat.frameworks'),
+      category: t('skills.cat.frontend'),
       icon: <Layers className="w-5 h-5 text-pink-400" />,
       items: [
-        { name: 'React & Next.js', tag: 'Web Framework' },
-        { name: 'React Native (iOS/Android)', tag: 'Mobile App' },
-        { name: 'Laravel (PHP)', tag: 'Fullstack' },
-        { name: 'Node.js / Express', tag: 'Backend API' },
-        { name: 'Angular & ASP.NET', tag: 'Enterprise' }
+        { name: 'ReactJS', tag: 'Web' },
+        { name: 'Next.js', tag: 'Web' },
+        { name: 'React Native', tag: 'Mobile' },
+        { name: 'Flutter', tag: 'Working-level' }
+      ]
+    },
+    {
+      category: t('skills.cat.backend'),
+      icon: <Cpu className="w-5 h-5 text-purple-400" />,
+      items: [
+        { name: 'Laravel', tag: 'PHP' },
+        { name: 'Node.js', tag: 'API' }
       ]
     },
     {
@@ -104,31 +118,24 @@ export default function Home() {
       items: [
         { name: 'PostgreSQL', tag: 'Relational' },
         { name: 'MySQL', tag: 'Relational' },
-        { name: 'MongoDB', tag: 'NoSQL' },
-        { name: 'SQL Server', tag: 'Enterprise' },
-        { name: 'Realm & SQLite', tag: 'Mobile' }
+        { name: 'MongoDB', tag: 'NoSQL' }
       ]
     },
     {
       category: t('skills.cat.devops'),
       icon: <Server className="w-5 h-5 text-emerald-400" />,
       items: [
-        { name: 'Docker & Containers', tag: 'DevOps' },
-        { name: 'Git & GitHub / SourceTree', tag: 'VCS' },
-        { name: 'Linux Server Administration', tag: 'OS' },
-        { name: 'Google Cloud Platform (GCP)', tag: 'Cloud' },
-        { name: 'Traefik Reverse Proxy', tag: 'PaaS' }
+        { name: 'Docker', tag: 'DevOps' },
+        { name: 'Git / GitHub', tag: 'VCS' },
+        { name: 'Linux', tag: 'OS' },
+        { name: 'Google Cloud Platform', tag: 'Cloud' }
       ]
     },
     {
-      category: t('skills.cat.ai'),
-      icon: <Bot className="w-5 h-5 text-amber-400" />,
+      category: t('skills.cat.spoken'),
+      icon: <Languages className="w-5 h-5 text-sky-400" />,
       items: [
-        { name: 'Cursor & Antigravity IDE', tag: 'AI Agent' },
-        { name: 'OpenAI Codex & LLMs', tag: 'Codegen' },
-        { name: 'Hermes Agent & MCP', tag: 'Workflows' },
-        { name: 'AI Code Review Automation', tag: 'QA' },
-        { name: 'Large Codebase Context Querying', tag: 'Architecture' }
+        { name: 'English — Reading / Writing', tag: 'Intermediate' }
       ]
     }
   ]
@@ -141,11 +148,11 @@ export default function Home() {
       role: t('projects.kunux.role'),
       category: 'paas',
       desc: t('projects.kunux.desc'),
-      period: '06/2026 - Present',
+      period: '06/2026 – Present',
       tech: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'Traefik'],
-      highlights: ['Reduced deployment time by ~30% with AI agents', 'Self-hosted PaaS VM hosting integration'],
+      highlights: [t('projects.kunux.h1'), t('projects.kunux.h2')],
       link: 'https://app.kunux.com',
-      badge: 'PaaS Platform'
+      badge: 'PaaS'
     },
     {
       id: 'booking',
@@ -153,11 +160,11 @@ export default function Home() {
       role: t('projects.booking.role'),
       category: 'paas',
       desc: t('projects.booking.desc'),
-      period: '05/2026 - 07/2026',
+      period: '05/2026 – 07/2026',
       tech: ['Next.js', 'React', 'TypeScript', 'Go', 'PostgreSQL', 'Docker'],
-      highlights: ['Enterprise workspace booking', 'Desk sharing & meeting room reservations'],
+      highlights: [t('projects.booking.h1'), t('projects.booking.h2')],
       link: 'https://booking.lntpartners.com',
-      badge: 'Enterprise SaaS'
+      badge: 'Enterprise'
     },
     {
       id: 'zogux',
@@ -165,24 +172,11 @@ export default function Home() {
       role: t('projects.zogux.role'),
       category: 'web',
       desc: t('projects.zogux.desc'),
-      period: '04/2026 - 06/2026',
-      tech: ['React', 'TypeScript', 'Jira', 'GitLab', 'REST APIs'],
-      highlights: ['Decentralized exchange (DEX) UI', 'Figma to React pixel-perfect components'],
+      period: '04/2026 – 06/2026',
+      tech: ['React', 'TypeScript', 'Jira', 'GitLab'],
+      highlights: [t('projects.zogux.h1'), t('projects.zogux.h2')],
       link: 'https://app.zogux.com',
-      badge: 'DEX Crypto'
-    },
-    {
-      id: 'taptap',
-      title: t('projects.taptap.title'),
-      role: t('projects.taptap.role'),
-      category: 'blockchain',
-      desc: t('projects.taptap.desc'),
-      period: '03/2026 - 04/2026',
-      tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Telegram Mini App'],
-      highlights: ['Tap-to-earn mechanism', 'Referral program & point redemption exchange'],
-      telegramLink: 'https://t.me/fivedax_tap_bot',
-      adminLink: 'https://claim-admin.5dax.com',
-      badge: 'Telegram DApp'
+      badge: 'DEX'
     },
     {
       id: 'pouchpay',
@@ -190,23 +184,37 @@ export default function Home() {
       role: t('projects.pouchpay.role'),
       category: 'blockchain',
       desc: t('projects.pouchpay.desc'),
-      period: '03/2025 - Present',
-      tech: ['Android (Java/Kotlin)', 'iOS (Swift)', 'Web3 dApp Browser', 'SwiftUI', 'Realm', 'SQLite'],
-      highlights: ['TokenScript tokenization framework compatible', 'Multi-chain Web3 browser integration'],
-      playStoreLink: 'https://play.google.com/store/apps/details?id=global.alltra.app&pli=1',
+      period: '03/2025 – Present',
+      tech: ['Android (Java/Kotlin)', 'iOS (Swift)', 'Web3 dApp Browser', 'Realm', 'SQLite'],
+      highlights: [t('projects.pouchpay.h1'), t('projects.pouchpay.h2')],
+      playStoreLink: 'https://play.google.com/store/apps/details?id=global.alltra.app',
       appStoreLink: 'https://apps.apple.com/us/app/pouchpay-alltra-wallet/id6748115292',
-      badge: 'Web3 Wallet'
+      badge: 'Wallet'
     },
     {
-      id: 'vindax',
-      title: t('projects.vindax.title'),
-      role: t('projects.vindax.role'),
+      id: 'nexdax',
+      title: t('projects.nexdax.title'),
+      role: t('projects.nexdax.role'),
       category: 'mobile',
-      desc: t('projects.vindax.desc'),
-      period: '01/2025 - Present',
-      tech: ['React Native', 'Node.js', 'MongoDB', 'WebSocket'],
-      highlights: ['Real-time crypto ticker charts', 'Secure authentication & order book UI'],
-      badge: 'Mobile App'
+      desc: t('projects.nexdax.desc'),
+      period: '09/2023 – Present',
+      tech: ['React Native', 'Node.js', 'MongoDB'],
+      highlights: [t('projects.nexdax.h1'), t('projects.nexdax.h2')],
+      playStoreLink: 'https://play.google.com/store/apps/details?id=com.nexdax',
+      badge: 'Mobile'
+    },
+    {
+      id: 'taptap',
+      title: t('projects.taptap.title'),
+      role: t('projects.taptap.role'),
+      category: 'blockchain',
+      desc: t('projects.taptap.desc'),
+      period: '03/2026 – 04/2026',
+      tech: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+      highlights: [t('projects.taptap.h1'), t('projects.taptap.h2')],
+      telegramLink: 'https://t.me/fivedax_tap_bot',
+      adminLink: 'https://claim-admin.5dax.com',
+      badge: 'Telegram Mini App'
     },
     {
       id: 'balance',
@@ -214,10 +222,10 @@ export default function Home() {
       role: t('projects.balance.role'),
       category: 'mobile',
       desc: t('projects.balance.desc'),
-      period: '09/2024 - 01/2025',
-      tech: ['React Native', 'Odoo (Python)', 'Firebase', 'Push Notifications', 'Social Logins'],
-      highlights: ['Agricultural e-commerce mobile product', 'Google Play & Apple App Store deployed'],
-      badge: 'Mobile App'
+      period: '09/2024 – 01/2025',
+      tech: ['React Native', 'Odoo (Python)', 'Firebase'],
+      highlights: [t('projects.balance.h1'), t('projects.balance.h2')],
+      badge: 'Mobile'
     },
     {
       id: 'fliam',
@@ -225,10 +233,10 @@ export default function Home() {
       role: t('projects.fliam.role'),
       category: 'web',
       desc: t('projects.fliam.desc'),
-      period: '03/2022 - 03/2024',
-      tech: ['PHP', 'Laravel', 'MySQL', 'Blade', 'Tailwind CSS', 'JavaScript'],
-      highlights: ['Marketplace connecting clients & freelancers', 'Secure contract & order management'],
-      badge: 'Web Platform',
+      period: '03/2022 – 03/2024',
+      tech: ['Laravel', 'PHP', 'MySQL', 'Blade', 'HTML/CSS', 'Tailwind CSS'],
+      highlights: [t('projects.fliam.h1'), t('projects.fliam.h2')],
+      badge: 'Web',
       link: 'https://fliam.com'
     }
   ]
@@ -266,7 +274,7 @@ export default function Home() {
                 </span>
                 <span className="text-xs text-indigo-400 font-mono flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                  Fullstack & AI Dev
+                  Fullstack Developer
                 </span>
               </div>
             </div>
@@ -343,7 +351,7 @@ export default function Home() {
               </button>
 
               <a
-                href="/cv/Ngo-Phuong-Nam-TopCV.vn-010926.120016.pdf"
+                href="/cv/PN-FullstackDeveloper.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-xl glass-card text-slate-200 hover:text-white font-semibold text-base border border-slate-700/80 hover:border-indigo-500/50 hover:bg-slate-800/60 active:scale-[0.98] transition-all"
@@ -371,7 +379,7 @@ export default function Home() {
                 <Github className="w-4 h-4 text-purple-400" />
                 GitHub
               </a>
-              <a href="https://www.linkedin.com/in/ngô-phương-nam-660a29268" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+              <a href="https://www.linkedin.com/in/ngo-phuong-nam-660a29268" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
                 <Linkedin className="w-4 h-4 text-blue-400" />
                 LinkedIn
               </a>
@@ -380,7 +388,7 @@ export default function Home() {
             {/* Quick Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 text-left">
               {[
-                { number: '4+', label: t('stats.years'), icon: <Briefcase className="w-6 h-6 text-indigo-400" /> },
+                { number: '4', label: t('stats.years'), icon: <Briefcase className="w-6 h-6 text-indigo-400" /> },
                 { number: '8+', label: t('stats.projects'), icon: <Code2 className="w-6 h-6 text-pink-400" /> },
                 { number: '~30%', label: t('stats.efficiency'), icon: <Zap className="w-6 h-6 text-amber-400" /> },
                 { number: '12+', label: t('stats.techs'), icon: <Layers className="w-6 h-6 text-cyan-400" /> }
@@ -462,7 +470,8 @@ export default function Home() {
                   <span className="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-300 text-xs font-mono">React / Next.js</span>
                   <span className="px-3 py-1 rounded-md bg-pink-500/10 text-pink-300 text-xs font-mono">React Native</span>
                   <span className="px-3 py-1 rounded-md bg-purple-500/10 text-purple-300 text-xs font-mono">Laravel PHP</span>
-                  <span className="px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-mono">Node.js / Express</span>
+                  <span className="px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-mono">Node.js</span>
+                  <span className="px-3 py-1 rounded-md bg-amber-500/10 text-amber-300 text-xs font-mono">Flutter</span>
                 </div>
               </div>
 
@@ -472,10 +481,10 @@ export default function Home() {
                     <Cpu className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">
-                    Blockchain & PaaS Expertise
+                    {t('about.paasTitle')}
                   </h3>
                   <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                    Experienced in building decentralized exchanges (DEX), TokenScript blockchain wallets, Telegram Mini Apps, and self-hosted PaaS platforms with Traefik & Docker.
+                    {t('about.paasDesc')}
                   </p>
                 </div>
                 <div className="pt-4 border-t border-slate-800 flex flex-wrap gap-2">
@@ -559,6 +568,7 @@ export default function Home() {
                       </span>
                       <h3 className="text-xl font-bold text-white mb-1">{t('exp.job1.role')}</h3>
                       <h4 className="text-sm font-semibold text-indigo-400 mb-4">{t('exp.job1.company')}</h4>
+                      <p className="text-sm text-slate-300 leading-relaxed mb-4 text-left">{t('exp.job1.intro')}</p>
                       <ul className="text-sm text-slate-300 space-y-2 text-left list-disc list-inside">
                         <li>{t('exp.job1.bullet1')}</li>
                         <li>{t('exp.job1.bullet2')}</li>
@@ -655,9 +665,15 @@ export default function Home() {
                     </h3>
                     <p className="text-xs font-medium text-pink-400 mb-3">{project.role}</p>
 
-                    <p className="text-sm text-slate-300 leading-relaxed mb-6">
+                    <p className="text-sm text-slate-300 leading-relaxed mb-4">
                       {project.desc}
                     </p>
+
+                    <ul className="text-xs text-slate-400 space-y-1.5 mb-6 list-disc list-inside">
+                      {project.highlights.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
 
                     <div className="flex flex-wrap gap-1.5 mb-6">
                       {project.tech.map((tItem) => (
@@ -834,7 +850,7 @@ export default function Home() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/ngô-phương-nam-660a29268"
+                href="https://www.linkedin.com/in/ngo-phuong-nam-660a29268"
                 target="_blank"
                 rel="noreferrer"
                 className="w-12 h-12 rounded-xl glass-card border border-slate-700/80 flex items-center justify-center text-slate-300 hover:text-white hover:border-indigo-500/50 hover:scale-110 transition-all"
