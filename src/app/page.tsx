@@ -49,6 +49,27 @@ const featuredProjects: Project[] = [
     ],
   },
   {
+    id: 'fliam',
+    period: '03/2022 – 03/2024',
+    teamKey: 'projects.fliam.team',
+    descKey: 'projects.fliam.desc',
+    highlightKeys: ['projects.fliam.h1', 'projects.fliam.h2'],
+    tech: ['Laravel', 'PHP', 'MySQL', 'HTML/CSS/JavaScript'],
+    links: [{ href: 'https://fliam.com', labelKey: 'projects.visit' }],
+  },
+  {
+    id: 'carefor',
+    period: '04/2022 – 09/2022',
+    teamKey: 'projects.carefor.team',
+    descKey: 'projects.carefor.desc',
+    highlightKeys: ['projects.carefor.h1', 'projects.carefor.h2'],
+    tech: ['OpenCart', 'PHP (MVC)', 'REST API', 'React Native', 'Redux', 'FCM'],
+    links: [
+      { href: 'https://www.careforvietnam.vn/', labelKey: 'projects.visit' },
+      { href: 'https://play.google.com/store/apps/details?id=vn.careforvietnam.appcrm', labelKey: 'projects.playStore' },
+    ],
+  },
+  {
     id: 'kunux',
     period: '06/2026 – 08/2026',
     teamKey: 'projects.kunux.team',
@@ -88,14 +109,6 @@ const otherProjects: Project[] = [
     highlightKeys: [],
     tech: ['Next.js', 'Go', 'PostgreSQL'],
     links: [{ href: 'https://booking.lntpartners.com', labelKey: 'projects.visit' }],
-  },
-  {
-    id: 'fliam',
-    period: '03/2022 – 03/2024',
-    descKey: 'projects.fliam.desc',
-    highlightKeys: [],
-    tech: ['Laravel', 'PHP', 'MySQL'],
-    links: [{ href: 'https://fliam.com', labelKey: 'projects.visit' }],
   },
   {
     id: 'shop',
