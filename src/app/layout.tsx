@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./providers/theme-provider";
 import { LanguageProvider } from "./providers/language-provider";
 
-const beVietnam = Be_Vietnam_Pro({
+const inter = Inter({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-be-vietnam",
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -24,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${beVietnam.variable} ${beVietnam.className} bg-paper text-ink antialiased`}>
+      <body className={`${inter.variable} ${jetbrains.variable} ${inter.className} bg-background text-on-surface antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

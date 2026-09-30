@@ -1,40 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #141816;
-  --ink: #e7ebe6;
-  --muted: #8b948c;
-  --line: #2c332f;
-  --surface: #1b201d;
-  --signal: #4eae97;
-  --signal-strong: #3d9a82;
-  --signal-soft: rgba(78, 174, 151, 0.12);
-  --award: #c4a35a;
-  --focus: #4eae97;
+  --background: #0f131c;
+  --surface: #0f131c;
+  --surface-low: #181c24;
+  --surface-high: #262a33;
+  --surface-lowest: #0a0e16;
+  --on-surface: #dfe2ee;
+  --on-surface-variant: #bcc9cd;
+  --primary: #4cd7f6;
+  --primary-container: #06b6d4;
+  --on-primary: #001f26;
+  --secondary: #adc6ff;
+  --secondary-container: #0566d9;
+  --tertiary: #4edea3;
+  --tertiary-container: #1bbd85;
+  --outline: #3d494c;
+  --outline-strong: #869397;
+  --error-container: #93000a;
+  --focus: #4cd7f6;
 }
 
 .light {
-  --paper: #f3f5f2;
-  --ink: #1e2320;
-  --muted: #5c6560;
-  --line: #d4dad5;
+  --background: #f4f7fb;
   --surface: #ffffff;
-  --signal: #0d5c4d;
-  --signal-strong: #0a4a3e;
-  --signal-soft: rgba(13, 92, 77, 0.08);
-  --award: #8a6d28;
-  --focus: #0d5c4d;
+  --surface-low: #eef3f8;
+  --surface-high: #e4ebf3;
+  --surface-lowest: #f8fafc;
+  --on-surface: #121820;
+  --on-surface-variant: #3d4a57;
+  --primary: #007a92;
+  --primary-container: #06b6d4;
+  --on-primary: #042028;
+  --secondary: #1d4ed8;
+  --secondary-container: #3b82f6;
+  --tertiary: #047857;
+  --tertiary-container: #10b981;
+  --outline: #c5d0db;
+  --outline-strong: #64748b;
+  --error-container: #b91c1c;
+  --focus: #007a92;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-ink: var(--ink);
-  --color-muted: var(--muted);
-  --color-line: var(--line);
+  --color-background: var(--background);
   --color-surface: var(--surface);
-  --color-signal: var(--signal);
-  --color-award: var(--award);
-  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
+  --color-surface-low: var(--surface-low);
+  --color-surface-high: var(--surface-high);
+  --color-surface-lowest: var(--surface-lowest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-outline: var(--outline);
+  --color-outline-strong: var(--outline-strong);
+  --color-error-container: var(--error-container);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
 html {
@@ -42,17 +69,17 @@ html {
 }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--background);
+  color: var(--on-surface);
   font-family: var(--font-sans);
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--signal);
-  color: var(--paper);
+  background: var(--primary-container);
+  color: var(--on-primary);
 }
 
 :focus-visible {
@@ -69,7 +96,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--line);
+  background: var(--outline);
   border-radius: 4px;
 }
 
@@ -78,15 +105,52 @@ body {
   left: 1rem;
   top: -3rem;
   z-index: 100;
-  background: var(--signal);
-  color: var(--paper);
+  background: var(--primary-container);
+  color: var(--on-primary);
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
+  border-radius: 0.5rem;
 }
 
 .skip-link:focus {
   top: 1rem;
+}
+
+.grid-bg {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--outline) 35%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--outline) 35%, transparent) 1px, transparent 1px);
+}
+
+.glass-card {
+  background: color-mix(in srgb, var(--surface-low) 78%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--outline) 55%, transparent);
+}
+
+.glass-card:hover {
+  border-color: color-mix(in srgb, var(--primary) 45%, transparent);
+}
+
+.cyan-glow {
+  box-shadow:
+    0 0 25px color-mix(in srgb, var(--primary-container) 28%, transparent),
+    0 8px 30px rgb(0 0 0 / 0.45);
+}
+
+.ambient {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.ambient span {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(130px);
 }
 
 @media (prefers-reduced-motion: reduce) {
